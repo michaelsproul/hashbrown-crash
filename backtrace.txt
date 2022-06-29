@@ -1,0 +1,17 @@
+#0  hashbrown::raw::RawIterRange<(alloc::vec::Vec<alloc::borrow::Cow<str>, alloc::alloc::Global>, alloc::vec::Vec<usize, alloc::alloc::Global>)>::new<(alloc::vec::Vec<alloc::borrow::Cow<str>, alloc::alloc::Global>, alloc::vec::Vec<usize, alloc::alloc::Global>)> (ctrl=0x7ffff7e2c0c8, data=..., len=<optimised out>) at /cargo/registry/src/github.com-1ecc6299db9ec823/hashbrown-0.12.0/src/raw/mod.rs:1862
+#1  hashbrown::raw::RawTable<(alloc::vec::Vec<alloc::borrow::Cow<str>, alloc::alloc::Global>, alloc::vec::Vec<usize, alloc::alloc::Global>), alloc::alloc::Global>::iter<(alloc::vec::Vec<alloc::borrow::Cow<str>, alloc::alloc::Global>, alloc::vec::Vec<usize, alloc::alloc::Global>), alloc::alloc::Global> (self=0x7fffffffdbd8) at /cargo/registry/src/github.com-1ecc6299db9ec823/hashbrown-0.12.0/src/raw/mod.rs:945
+#2  hashbrown::raw::RawTable<(alloc::vec::Vec<alloc::borrow::Cow<str>, alloc::alloc::Global>, alloc::vec::Vec<usize, alloc::alloc::Global>), alloc::alloc::Global>::drop_elements<(alloc::vec::Vec<alloc::borrow::Cow<str>, alloc::alloc::Global>, alloc::vec::Vec<usize, alloc::alloc::Global>), alloc::alloc::Global> (self=0x7fffffffdbd8) at /cargo/registry/src/github.com-1ecc6299db9ec823/hashbrown-0.12.0/src/raw/mod.rs:603
+#3  0x0000555555562ca5 in hashbrown::raw::{impl#17}::drop<(alloc::vec::Vec<alloc::borrow::Cow<str>, alloc::alloc::Global>, alloc::vec::Vec<usize, alloc::alloc::Global>), alloc::alloc::Global> (self=0x7fffffffdbd8)
+    at /cargo/registry/src/github.com-1ecc6299db9ec823/hashbrown-0.12.0/src/raw/mod.rs:1801
+#4  core::ptr::drop_in_place<hashbrown::raw::RawTable<(alloc::vec::Vec<alloc::borrow::Cow<str>, alloc::alloc::Global>, alloc::vec::Vec<usize, alloc::alloc::Global>), alloc::alloc::Global>> ()
+    at /rustc/fe5b13d681f25ee6474be29d748c65adcd91f69e/library/core/src/ptr/mod.rs:448
+#5  core::ptr::drop_in_place<hashbrown::map::HashMap<alloc::vec::Vec<alloc::borrow::Cow<str>, alloc::alloc::Global>, alloc::vec::Vec<usize, alloc::alloc::Global>, std::collections::hash::map::RandomState, alloc::alloc::Global>>
+    () at /rustc/fe5b13d681f25ee6474be29d748c65adcd91f69e/library/core/src/ptr/mod.rs:448
+#6  core::ptr::drop_in_place<std::collections::hash::map::HashMap<alloc::vec::Vec<alloc::borrow::Cow<str>, alloc::alloc::Global>, alloc::vec::Vec<usize, alloc::alloc::Global>, std::collections::hash::map::RandomState>> ()
+    at /rustc/fe5b13d681f25ee6474be29d748c65adcd91f69e/library/core/src/ptr/mod.rs:448
+#7  toml::de::{impl#0}::deserialize_any<hashbrown_crash::_::{impl#0}::deserialize::__Visitor> (self=0x7fffffffdc68, visitor=...) at /home/michael/.cargo/registry/src/github.com-1ecc6299db9ec823/toml-0.5.9/src/de.rs:244
+#8  toml::de::{impl#0}::deserialize_struct<hashbrown_crash::_::{impl#0}::deserialize::__Visitor> (self=0x7fffffffdc68, name=..., fields=..., visitor=...)
+    at /home/michael/.cargo/registry/src/github.com-1ecc6299db9ec823/toml-0.5.9/src/de.rs:315
+#9  0x000055555555fa3e in hashbrown_crash::_::{impl#0}::deserialize<&mut toml::de::Deserializer> (__deserializer=0x7fffffffdc68) at src/main.rs:3
+#10 toml::de::from_str<hashbrown_crash::Input> (s=...) at /home/michael/.cargo/registry/src/github.com-1ecc6299db9ec823/toml-0.5.9/src/de.rs:80
+#11 0x000055555555e4cd in hashbrown_crash::main () at src/main.rs:11
